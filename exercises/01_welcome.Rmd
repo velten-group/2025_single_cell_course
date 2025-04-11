@@ -76,6 +76,79 @@ Now we can use those packages like we would for packages from CRAN loading them 
 library(MOFA2)
 ```
 
+# Installing packages required for the course
+In the following we we install specific packages needed for the course. The following code is not evaluated when generating the html report to avoid problems but please try to run it in RStudio to install all packages listed. Some packages might produce errors in the installation. If you encounter errors with some packages please report which packages produce errors and get help via Mattermost. You will also be able to get help on this during the course in case packages cannot be installed.
+```{r, eval = FALSE}
+# if not installed yet, install the packages like this
+
+# devtools
+install.packages("devtools")
+
+#Seurat
+install.packages("Seurat")
+
+# SeuratData
+devtools::install_github('satijalab/seurat-data')
+
+# uwot
+install.packages("uwot")
+
+# lisi
+devtools::install_github("immunogenomics/lisi")
+
+# patchwork
+install.packages('patchwork')
+
+# spatialDE
+BiocManager::install("spatialDE", dependencies = TRUE)
+
+# reticulate (interface to Python)
+install.packages("reticulate")
+
+# CARD
+devtools::install_github('YMa-lab/CARD')
+
+# monocle3
+BiocManager::install("monocle3", dependencies = TRUE)
+
+# Repository for curated single-cell datasets
+BiocManager::install("scRNAseq", dependencies = TRUE)
+
+# Transforming Seurat objects
+BiocManager::install("satijalab/seurat-wrappers", dependencies = TRUE)
+
+# data.table
+install.packages("data.table")
+```
+
+Now we check if all packages can be loaded.
+```{r, eval = FALSE}
+# Seurat version 5
+library(Seurat)
+stopifnot(packageVersion("Seurat")$major == 5)
+
+library(SeuratData)
+
+library(uwot)
+
+library(lisi)
+
+library(patchwork)
+
+library(spatialDE) 
+
+library(reticulate) 
+
+library(CARD)
+
+library(monocle3)
+
+library(SeuratWrappers)
+
+library(scRNAseq)
+
+library(data.table)
+```
 
 # Final step : Showing the details of your current R session
 At the end of each Rmd file it is useful to print the output of the `sessionInfo()` function. This is important for reproducibility as it helps you and others to go back to a html report, which you did in the past and see which operating system, R version and package versions you used.
